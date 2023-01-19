@@ -32,7 +32,8 @@ public class ConvertorImpl implements IConverter {
         if (i < 0 || j < 0 || value < 0) {
             return null;
         } else {
-            return new ClassMessage.OutputMessage(from, to, value * koefV[i] / koefV[j]);
+            //return new ClassMessage.OutputMessage(from, to, value * koefV[i] / koefV[j]);
+            return new ClassMessage.OutputMessage(value * koefV[i] / koefV[j]);
         }
     }
         private int getIndex (String s){
