@@ -1,11 +1,13 @@
 package org.converterinfojsonapi.logic;
 
-import org.apache.logging.log4j.message.Message;
-import org.converterinfojsonapi.service.ClassMessage;
+//import org.converterinfojsonapi.entity.ClassMessage;
+import org.converterinfojsonapi.entity.IMessage;
+import org.converterinfojsonapi.entity.InputMessage;
+import org.converterinfojsonapi.entity.OutputMessage;
 import org.springframework.stereotype.Component;
 
 @Component
 public interface IConverter {
-    ClassMessage.OutputMessage convertor(ClassMessage.InputMessage inputMessage);
+    IMessage convertor(InputMessage inputMessage);
 
 }

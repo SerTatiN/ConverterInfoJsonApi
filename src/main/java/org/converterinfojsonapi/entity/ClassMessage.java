@@ -1,9 +1,9 @@
-package org.converterinfojsonapi.service;
+package org.converterinfojsonapi.entity;
 
 import java.util.Date;
 
 // класс сообщений
-public class ClassMessage {
+/*public class ClassMessage {
     public interface IMessage{}
 
 
@@ -109,4 +109,4 @@ public class ClassMessage {
 
 
 
-}
+}*/

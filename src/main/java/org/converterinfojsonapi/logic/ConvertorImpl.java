@@ -1,6 +1,10 @@
 package org.converterinfojsonapi.logic;
 
-import org.converterinfojsonapi.service.ClassMessage;
+//import org.converterinfojsonapi.entity.ClassMessage;
+import org.converterinfojsonapi.entity.IMessage;
+import org.converterinfojsonapi.entity.InputMessage;
+import org.converterinfojsonapi.entity.OutputMessage;
+
 import java.util.Arrays;
 import java.util.List;
 /* Онлайн конвертер единиц информации (байт, кб, мб, гб).
@@ -19,8 +23,25 @@ public class ConvertorImpl implements IConverter {
 
     private final int[] koefV = {1, 1024, 1048576, 1073741824};
 
-    @Override
-    public ClassMessage.OutputMessage convertor(ClassMessage.InputMessage inputMessage) {
+ //   @Override
+//    public ClassMessage.OutputMessage convertor(ClassMessage.InputMessage inputMessage) {
+//
+//        String from = inputMessage.getFrom();
+//        String to = inputMessage.getTo();
+//        double value = inputMessage.getValue();
+//
+//        int i = getIndex(from);
+//        int j = getIndex(to);
+//
+//        if (i < 0 || j < 0 || value < 0) {
+//            return null;
+//        } else {
+//            //return new ClassMessage.OutputMessage(from, to, value * koefV[i] / koefV[j]);
+//            return new ClassMessage.OutputMessage(value * koefV[i] / koefV[j]);
+//        }
+//    }
+ @Override
+    public IMessage convertor(InputMessage inputMessage) {
 
         String from = inputMessage.getFrom();
         String to = inputMessage.getTo();
@@ -33,7 +54,7 @@ public class ConvertorImpl implements IConverter {
             return null;
         } else {
             //return new ClassMessage.OutputMessage(from, to, value * koefV[i] / koefV[j]);
-            return new ClassMessage.OutputMessage(value * koefV[i] / koefV[j]);
+            return new OutputMessage(value * koefV[i] / koefV[j]);
         }
     }
         private int getIndex (String s){
@@ -44,4 +65,5 @@ public class ConvertorImpl implements IConverter {
             }
             return -1;
         }
+
 }

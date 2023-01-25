@@ -1,5 +1,7 @@
 package org.converterinfojsonapi.service;
 
+import org.converterinfojsonapi.entity.*;
+//import org.converterinfojsonapi.entity.ClassMessage;
 import org.converterinfojsonapi.logic.IConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,21 +17,22 @@ public class ConverterService {
     private IConverter converter;
 
 
+
     @GetMapping("/ping")
-    public @ResponseBody ClassMessage.Message ping(){
-        return new ClassMessage.Message("pong");
-    }
+    public @ResponseBody Message ping(){
+    return new Message("pong");
+}
 
     @GetMapping("/status")
-    public @ResponseBody ClassMessage.Message status(){
-        return new ClassMessage.Message("status ok at port 8080");
+    public @ResponseBody Message status(){
+        return new Message("status ok at port 8080");
     }
 
     @GetMapping("/convert")
-    public @ResponseBody ClassMessage.IMessage convert(@RequestBody ClassMessage.InputMessage input){
-        ClassMessage.OutputMessage  output = converter.convertor(input);
+    public @ResponseBody IMessage convert(@RequestBody InputMessage input) {
+        IMessage output = converter.convertor(input);
         if (output == null) {
-            return new ClassMessage.ErrorMessage("no corrected input date");
+            return new ErrorMessage("no corrected input date");
         } else {
             return output;
         }
