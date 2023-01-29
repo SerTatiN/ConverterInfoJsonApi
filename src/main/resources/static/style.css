@@ -1,0 +1,17 @@
+form {
+    box-sizing: border-box;
+    width: 50em;
+    padding: 20px;
+    border: 1px solid rgba(72, 11, 177, 0.829);
+    background-color: rgb(189, 245, 245);
+
+}
+div {
+    margin-bottom: 10px;
+}
+button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}

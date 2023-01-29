@@ -1,22 +1,16 @@
 package org.converterinfojsonapi.service;
 
 import org.converterinfojsonapi.entity.*;
-//import org.converterinfojsonapi.entity.ClassMessage;
 import org.converterinfojsonapi.logic.IConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/service")
-public class ConverterService {
+public class ConverterServiceApi {
     @Autowired
     private IConverter converter;
-
-
 
     @GetMapping("/ping")
     public @ResponseBody Message ping(){
@@ -28,7 +22,8 @@ public class ConverterService {
         return new Message("status ok at port 8080");
     }
 
-    @GetMapping("/convert")
+
+    @PostMapping("/convert")
     public @ResponseBody IMessage convert(@RequestBody InputMessage input) {
         IMessage output = converter.convertor(input);
         if (output == null) {

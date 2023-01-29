@@ -4,6 +4,7 @@ package org.converterinfojsonapi.logic;
 import org.converterinfojsonapi.entity.IMessage;
 import org.converterinfojsonapi.entity.InputMessage;
 import org.converterinfojsonapi.entity.OutputMessage;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 ГОСТ Р МЭК 80000-13-2016 Государственная система обеспечения единства измерений (ГСИ).
 Величины и единицы. Часть 13. Информатика и информационные технологии.
 */
-
+@Service
 public class ConvertorImpl implements IConverter {
     private final List<String> bL = Arrays.asList("b", "б", "byte", "байт");
     private final List<String> kL = Arrays.asList("кб", "киби", "kb", "kibi", "ки", "ki");
